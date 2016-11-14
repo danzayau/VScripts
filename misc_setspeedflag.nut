@@ -15,8 +15,17 @@
 function StartTouch()
 {
 	local playerScope = activator.GetScriptScope();
-	playerScope.usingSpeedPanel = false;
-	playerScope.showingSpeedPanel = false;
+	
+	if (self.GetName() == "true")
+	{
+		playerScope.usingSpeedPanel = true;
+		playerScope.showingSpeedPanel = true;
+	}
+	else
+	{
+		playerScope.usingSpeedPanel = false;
+		playerScope.showingSpeedPanel = false;
+	}
 }
 
 
