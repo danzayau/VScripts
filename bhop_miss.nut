@@ -2,7 +2,8 @@
 
 	Written by DanZay.
 	
-	The teleport trigger below the b-hops that the player hits when they fall.
+	Teleport trigger that teleports players to the last safe area
+	e.g. place below the b-hops so they are teleported when fall.
 */
 
 

@@ -10,13 +10,13 @@
 
 // Global Variables
 
-const minMessageTime = 5; // Amount of time in seconds the speed panel is disabled for messages to be seen.
-const speedPanelHideLagg = 0.5 // Amount of time to delay showing messages to allow the speed panel to go away.
+const misc_minMessageTime = 5; // Amount of time in seconds the speed panel is disabled for messages to be seen.
+const misc_speedPanelHideLagg = 0.5 // Amount of time to delay showing messages to allow the speed panel to go away.
 
-language <- "english"; // The language of which to display messages (default is English).
-usingSpeedPanel <- true; // Whether or not the player is using !speed.
-showingSpeedPanel <- true; // Whether or not the player is currently showing the speed panel.
-latestMessageTime <- null; // Timestamp of when the latest message was printed to the centre panel.
+misc_language <- "english"; // The misc_language of which to display messages (default is English).
+misc_usingSpeedPanel <- true; // Whether or not the player is using !speed.
+misc_showingSpeedPanel <- true; // Whether or not the player is currently showing the speed panel.
+misc_latestMessageTime <- null; // Timestamp of when the latest message was printed to the centre panel.
 
 
 // Functions
@@ -67,7 +67,62 @@ function Max(value1, value2)
 function TeleportPlayerTo(destEntity)
 {
 	self.SetOrigin(destEntity.GetOrigin());
-	self.SetVelocity(Vector(0, 0, 0));
+}
+
+
+/*	SetVelocityToZero(entity)
+
+	Sets the targeted entity's velocity to 0.
+	
+	Parameters:
+	entity - The handle of the entity to set the velocity of.
+*/
+function SetVelocityToZero(entity)
+{
+	entity.SetVelocity(Vector(0, 0, 0));
+}
+
+/*	Rebound(touchedTrigger)
+
+	Rebounds the player (set's their velocity) to bounce them away from the face of the trigger they touched.
+	Intended for rectangular triggers, and works fine when the player can't hit the corners.
+	
+	Parameters:
+	touchedTrigger - The handle of the touched objective gate trigger.
+*/
+function Rebound(touchedTrigger)
+{
+	local triggerBounds = touchedTrigger.GetBoundingMaxs();
+	local triggerCenter = touchedTrigger.GetCenter();
+	local playerCenter = self.GetCenter();
+	local playerNewVelocity = self.GetVelocity();
+	
+	if (playerCenter.x < (triggerCenter.x - triggerBounds.x))
+	{	// Player coming from -x
+		playerNewVelocity.x = -1 * nl_reboundVelocity;
+	}
+	else if (playerCenter.x > (triggerCenter.x + triggerBounds.x)) 
+	{	// Player coming from +x
+		playerNewVelocity.x = nl_reboundVelocity;
+	}
+	else if (playerCenter.y < (triggerCenter.y - triggerBounds.y))
+	{	// Player coming from -y
+		playerNewVelocity.y = -1 * nl_reboundVelocity;
+	}
+	else if (playerCenter.y > (triggerCenter.y + triggerBounds.y))
+	{	// Player coming from +y
+		playerNewVelocity.y = nl_reboundVelocity;
+	}
+	else if (playerCenter.z < (triggerCenter.z - triggerBounds.z))
+	{	// Player comnig from -z
+		playerNewVelocity.z = -1 * nl_reboundVelocity;
+	}
+	else
+	{	// Player coming from +z
+		playerNewVelocity.z = nl_reboundVelocity;
+	}
+
+	self.SetVelocity(playerNewVelocity);
 }
 
 /*	ExecuteCommand(command)
@@ -121,14 +176,14 @@ function PlaySound(soundPath)
 */
 function CenterPanelMessage(message) 
 {
-	if (usingSpeedPanel)
+	if (misc_usingSpeedPanel)
 	{
 		local messageTime = Time();
-		latestMessageTime = messageTime;
+		misc_latestMessageTime = messageTime;
 		UpdateSpeedPanelVisibility(false, messageTime);
-		EntFireByHandle(self, "RunScriptCode", "UpdateSpeedPanelVisibility(true, " + messageTime + ");", minMessageTime, self, self);
+		EntFireByHandle(self, "RunScriptCode", "UpdateSpeedPanelVisibility(true, " + messageTime + ");", misc_minMessageTime, self, self);
 		// Delay showing the hint message to give time for the speed panel to go away (especially with high ping).
-		EntFireByHandle(self, "RunScriptCode", "ShowHudHintMessage(\"" + message + "\");", speedPanelHideLagg, self, self);
+		EntFireByHandle(self, "RunScriptCode", "ShowHudHintMessage(\"" + message + "\");", misc_speedPanelHideLagg, self, self);
 	}
 	else
 	{
@@ -147,20 +202,20 @@ function CenterPanelMessage(message)
 */
 function UpdateSpeedPanelVisibility(wantToShowSpeedPanel, messageTime)
 {
-	/* The following is not done (latestMessageTime != messageTime) because
+	/* The following is not done (misc_latestMessageTime != messageTime) because
 	messageTime is rounded value when it is called via EntFireByHandle */
-	if ((latestMessageTime - messageTime) > 0.1)
+	if ((misc_latestMessageTime - messageTime) > 0.1)
 	{
 		return;
 	}
-	else if (wantToShowSpeedPanel && !showingSpeedPanel)
+	else if (wantToShowSpeedPanel && !misc_showingSpeedPanel)
 	{	// Turn speed panel on.
 		ExecuteCommand("sm_speed");
-		showingSpeedPanel = true;
+		misc_showingSpeedPanel = true;
 	}
-	else if (!wantToShowSpeedPanel && showingSpeedPanel) 
+	else if (!wantToShowSpeedPanel && misc_showingSpeedPanel) 
 	{	// Turn the speed panel off.
 		ExecuteCommand("sm_speed");
-		showingSpeedPanel = false;
+		misc_showingSpeedPanel = false;
 	}
 }

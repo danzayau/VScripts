@@ -20,40 +20,13 @@ DoIncludeScript("danzay/nonlinear_resource.nut", self.GetScriptScope());
 	
 // Global Variables
 
-const objectiveEntName = "dzy-nonlinear_objective"; // Name of objective entities.
-const rejectDestEntName = "dzy-nonlinear_rejectdest"; // Name of objective gate teleport destinations.
-const reboundVelocity = 500; // Velocity at which the objective gates rebound the player.
+const nl_reboundVelocity = 500; // Velocity at which the objective gates rebound the player.
 
-collectedObjectives <- []; // An array of the handles of the objectives the player has collected.
-objectivesRequired <- null; // The number of objectives required by a touched objective gate.
+nl_collectedObjectives <- []; // An array of the handles of the objectives the player has collected.
+nl_objectivesRequired <- null; // The number of objectives required by a touched objective gate.
 
 	
 // Functions
-
-/* 	GetObjectiveHandles()
-
-	Returns an array of all objective entity handles found in the map.
-*/	
-function GetObjectiveHandles()
-{	
-	local objectiveHandles = [];
-	local ent = null;
-	while ((ent = Entities.FindByName(ent, objectiveEntName)) != null)
-	{
-		objectiveHandles.append(ent);
-	}
-	return objectiveHandles;
-}
-
-/* 	GetNumberOfObjectives()
-
-	Returns the number of objectives found in the map.
-*/	
-function GetNumberOfObjectives()
-{
-	local objectiveHandles = GetObjectiveHandles();
-	return objectiveHandles.len();
-}
 
 /* 	GetNumberOfObjectivesCollected()
 
@@ -61,7 +34,7 @@ function GetNumberOfObjectives()
 */
 function GetNumberOfObjectivesCollected()
 {
-	return collectedObjectives.len();
+	return nl_collectedObjectives.len();
 }
 	
 /* 	ResetObjectivesCollected()
@@ -71,9 +44,9 @@ function GetNumberOfObjectivesCollected()
 */
 function ResetObjectivesCollected()
 {
-	if (collectedObjectives.len() > 0)
+	if (nl_collectedObjectives.len() > 0)
 	{
-		collectedObjectives.clear();
+		nl_collectedObjectives.clear();
 		CenterPanelMessage(MessageObjectiveReset());
 	}
 }
@@ -88,13 +61,13 @@ function ResetObjectivesCollected()
 */
 function ObjectiveTouch(touchedObjective)
 {
-	if (IsInArray(touchedObjective, collectedObjectives))
+	if (IsInArray(touchedObjective, nl_collectedObjectives))
 	{
 		CenterPanelMessage(MessageAlreadyCollectedObjective());
 	}
 	else
 	{
-		collectedObjectives.append(touchedObjective);
+		nl_collectedObjectives.append(touchedObjective);
 		PlaySound(SoundObjectiveGet());
 		CenterPanelMessage(MessageObjectiveGet());
 	}
@@ -110,56 +83,13 @@ function ObjectiveTouch(touchedObjective)
 */
 function ObjectiveGateReboundTouch(touchedGate)
 {
-	local objectivesRequired = touchedGate.GetName().tointeger();
+	local nl_objectivesRequired = touchedGate.GetName().tointeger();
 	
-	if (GetNumberOfObjectivesCollected() < objectivesRequired)
+	if (GetNumberOfObjectivesCollected() < nl_objectivesRequired)
 	{
-		CenterPanelMessage(MessageObjectiveGateFail(objectivesRequired));
+		CenterPanelMessage(MessageObjectiveGateFail(nl_objectivesRequired));
 		Rebound(touchedGate);
 	}
-}
-
-/*	Rebound(touchedTrigger)
-
-	Rebounds the player (set's their velocity) to bounce them away from the face of the trigger they touched.
-	Intended for rectangular triggers, and works fine when the player can't hit the corners.
-	
-	Parameters:
-	touchedTrigger - The handle of the touched objective gate trigger.
-*/
-function Rebound(touchedTrigger)
-{
-	local triggerBounds = touchedTrigger.GetBoundingMaxs();
-	local triggerCenter = touchedTrigger.GetCenter();
-	local playerCenter = self.GetCenter();
-	local playerNewVelocity = self.GetVelocity();
-	
-	if (playerCenter.x < (triggerCenter.x - triggerBounds.x))
-	{	// Player coming from -x
-		playerNewVelocity.x = -1 * reboundVelocity;
-	}
-	else if (playerCenter.x > (triggerCenter.x + triggerBounds.x)) 
-	{	// Player coming from +x
-		playerNewVelocity.x = reboundVelocity;
-	}
-	else if (playerCenter.y < (triggerCenter.y - triggerBounds.y))
-	{	// Player coming from -y
-		playerNewVelocity.y = -1 * reboundVelocity;
-	}
-	else if (playerCenter.y > (triggerCenter.y + triggerBounds.y))
-	{	// Player coming from +y
-		playerNewVelocity.y = reboundVelocity;
-	}
-	else if (playerCenter.z < (triggerCenter.z - triggerBounds.z))
-	{	// Player comnig from -z
-		playerNewVelocity.z = -1 * reboundVelocity;
-	}
-	else
-	{	// Player coming from +z
-		playerNewVelocity.z = reboundVelocity;
-	}
-
-	self.SetVelocity(playerNewVelocity);
 }
 
 /*	ObjectiveGateTeleportTouch(touchedGate)
@@ -172,12 +102,12 @@ function Rebound(touchedTrigger)
 */
 function ObjectiveGateTeleportTouch(touchedGate)
 {
-	local objectivesRequired = touchedGate.GetName().tointeger();
+	local nl_objectivesRequired = touchedGate.GetName().tointeger();
 	
-	if (GetNumberOfObjectivesCollected() < objectivesRequired)
+	if (GetNumberOfObjectivesCollected() < nl_objectivesRequired)
 	{	
-		CenterPanelMessage(MessageObjectiveGateFail(objectivesRequired));
-		local teleportDest = Entities.FindByNameNearest(rejectDestEntName, self.GetOrigin(), 256);
-		TeleportPlayerTo(teleportDest);
+		CenterPanelMessage(MessageObjectiveGateFail(nl_objectivesRequired));
+		TeleportPlayerTo(touchedGate);
+		SetVelocityToZero(self);
 	}
 }

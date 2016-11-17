@@ -5,7 +5,7 @@
 	Sets the selected language of the player.
 	
 	!!!IMPORTANT!!!
-	Name the entity as the language you want to set it to.
+	Name the entity as the language you want to set to.
 */
 
 

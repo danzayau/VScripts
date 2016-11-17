@@ -2,7 +2,7 @@ versioninfo
 {
 	"editorversion" "400"
 	"editorbuild" "7285"
-	"mapversion" "92"
+	"mapversion" "97"
 	"formatversion" "100"
 	"prefab" "0"
 }
@@ -20,7 +20,7 @@ viewsettings
 world
 {
 	"id" "1"
-	"mapversion" "92"
+	"mapversion" "97"
 	"classname" "worldspawn"
 	"detailmaterial" "detail/detailsprites"
 	"detailvbsp" "detail.vbsp"
@@ -28,10 +28,10 @@ world
 	"skyname" "nukeblank"
 	solid
 	{
-		"id" "3862"
+		"id" "3956"
 		side
 		{
-			"id" "4200"
+			"id" "4092"
 			"plane" "(-16376 16376 16376) (16376 16376 16376) (16376 -16376 16376)"
 			"material" "TOOLS/TOOLSSKYBOX"
 			"uaxis" "[1 0 0 0] 0.25"
@@ -42,7 +42,7 @@ world
 		}
 		side
 		{
-			"id" "4199"
+			"id" "4091"
 			"plane" "(-16376 16376 16376) (-16376 -16376 16376) (-16376 -16376 -16376)"
 			"material" "TOOLS/TOOLSSKYBOX"
 			"uaxis" "[0 1 0 0] 0.25"
@@ -53,7 +53,7 @@ world
 		}
 		side
 		{
-			"id" "4198"
+			"id" "4090"
 			"plane" "(16376 16376 -16376) (16376 -16376 -16376) (16376 -16376 16376)"
 			"material" "TOOLS/TOOLSSKYBOX"
 			"uaxis" "[0 1 0 0] 0.25"
@@ -64,7 +64,7 @@ world
 		}
 		side
 		{
-			"id" "4197"
+			"id" "4089"
 			"plane" "(16376 16376 16376) (-16376 16376 16376) (-16376 16376 -16376)"
 			"material" "TOOLS/TOOLSSKYBOX"
 			"uaxis" "[1 0 0 0] 0.25"
@@ -75,7 +75,7 @@ world
 		}
 		side
 		{
-			"id" "4196"
+			"id" "4088"
 			"plane" "(16376 -16376 -16376) (-16376 -16376 -16376) (-16376 -16376 16376)"
 			"material" "TOOLS/TOOLSSKYBOX"
 			"uaxis" "[1 0 0 0] 0.25"
@@ -86,7 +86,7 @@ world
 		}
 		side
 		{
-			"id" "4195"
+			"id" "4087"
 			"plane" "(2048 -512 256) (2048 1280 256) (256 1280 256)"
 			"material" "TOOLS/TOOLSSKYBOX"
 			"uaxis" "[1 0 0 0] 0.25"
@@ -97,7 +97,7 @@ world
 		}
 		editor
 		{
-			"color" "0 178 227"
+			"color" "0 102 227"
 			"visgroupshown" "1"
 			"visgroupautoshown" "1"
 			"cordonsolid" "1"
@@ -105,10 +105,10 @@ world
 	}
 	solid
 	{
-		"id" "3864"
+		"id" "3958"
 		side
 		{
-			"id" "4230"
+			"id" "4122"
 			"plane" "(-16376 -16376 -16376) (16376 -16376 -16376) (16376 16376 -16376)"
 			"material" "TOOLS/TOOLSSKYBOX"
 			"uaxis" "[1 0 0 0] 0.25"
@@ -119,7 +119,7 @@ world
 		}
 		side
 		{
-			"id" "4229"
+			"id" "4121"
 			"plane" "(-16376 16376 16376) (-16376 -16376 16376) (-16376 -16376 -16376)"
 			"material" "TOOLS/TOOLSSKYBOX"
 			"uaxis" "[0 1 0 0] 0.25"
@@ -130,7 +130,7 @@ world
 		}
 		side
 		{
-			"id" "4228"
+			"id" "4120"
 			"plane" "(16376 16376 -16376) (16376 -16376 -16376) (16376 -16376 16376)"
 			"material" "TOOLS/TOOLSSKYBOX"
 			"uaxis" "[0 1 0 0] 0.25"
@@ -141,7 +141,7 @@ world
 		}
 		side
 		{
-			"id" "4227"
+			"id" "4119"
 			"plane" "(16376 16376 16376) (-16376 16376 16376) (-16376 16376 -16376)"
 			"material" "TOOLS/TOOLSSKYBOX"
 			"uaxis" "[1 0 0 0] 0.25"
@@ -152,7 +152,7 @@ world
 		}
 		side
 		{
-			"id" "4226"
+			"id" "4118"
 			"plane" "(16376 -16376 -16376) (-16376 -16376 -16376) (-16376 -16376 16376)"
 			"material" "TOOLS/TOOLSSKYBOX"
 			"uaxis" "[1 0 0 0] 0.25"
@@ -163,7 +163,7 @@ world
 		}
 		side
 		{
-			"id" "4225"
+			"id" "4117"
 			"plane" "(2048 1280 -64) (2048 -512 -64) (256 -512 -64)"
 			"material" "TOOLS/TOOLSSKYBOX"
 			"uaxis" "[1 0 0 0] 0.25"
@@ -174,7 +174,7 @@ world
 		}
 		editor
 		{
-			"color" "0 178 227"
+			"color" "0 102 227"
 			"visgroupshown" "1"
 			"visgroupautoshown" "1"
 			"cordonsolid" "1"
@@ -182,10 +182,10 @@ world
 	}
 	solid
 	{
-		"id" "3866"
+		"id" "3960"
 		side
 		{
-			"id" "4224"
+			"id" "4116"
 			"plane" "(-16376 16376 16376) (-16376 -16376 16376) (-16376 -16376 -16376)"
 			"material" "TOOLS/TOOLSSKYBOX"
 			"uaxis" "[0 1 0 0] 0.25"
@@ -196,7 +196,7 @@ world
 		}
 		side
 		{
-			"id" "4223"
+			"id" "4115"
 			"plane" "(16376 16376 16376) (-16376 16376 16376) (-16376 16376 -16376)"
 			"material" "TOOLS/TOOLSSKYBOX"
 			"uaxis" "[1 0 0 0] 0.25"
@@ -207,7 +207,7 @@ world
 		}
 		side
 		{
-			"id" "4222"
+			"id" "4114"
 			"plane" "(16376 -16376 -16376) (-16376 -16376 -16376) (-16376 -16376 16376)"
 			"material" "TOOLS/TOOLSSKYBOX"
 			"uaxis" "[1 0 0 0] 0.25"
@@ -218,7 +218,7 @@ world
 		}
 		side
 		{
-			"id" "4221"
+			"id" "4113"
 			"plane" "(256 1280 256) (2048 1280 256) (2048 -512 256)"
 			"material" "TOOLS/TOOLSSKYBOX"
 			"uaxis" "[1 0 0 0] 0.25"
@@ -229,7 +229,7 @@ world
 		}
 		side
 		{
-			"id" "4220"
+			"id" "4112"
 			"plane" "(256 -512 -64) (2048 -512 -64) (2048 1280 -64)"
 			"material" "TOOLS/TOOLSSKYBOX"
 			"uaxis" "[1 0 0 0] 0.25"
@@ -240,7 +240,7 @@ world
 		}
 		side
 		{
-			"id" "4219"
+			"id" "4111"
 			"plane" "(256 -512 -64) (256 -512 256) (256 1280 256)"
 			"material" "TOOLS/TOOLSSKYBOX"
 			"uaxis" "[0 1 0 0] 0.25"
@@ -251,7 +251,7 @@ world
 		}
 		editor
 		{
-			"color" "0 178 227"
+			"color" "0 102 227"
 			"visgroupshown" "1"
 			"visgroupautoshown" "1"
 			"cordonsolid" "1"
@@ -259,10 +259,10 @@ world
 	}
 	solid
 	{
-		"id" "3868"
+		"id" "3962"
 		side
 		{
-			"id" "4218"
+			"id" "4110"
 			"plane" "(16376 16376 -16376) (16376 -16376 -16376) (16376 -16376 16376)"
 			"material" "TOOLS/TOOLSSKYBOX"
 			"uaxis" "[0 1 0 0] 0.25"
@@ -273,7 +273,7 @@ world
 		}
 		side
 		{
-			"id" "4217"
+			"id" "4109"
 			"plane" "(16376 16376 16376) (-16376 16376 16376) (-16376 16376 -16376)"
 			"material" "TOOLS/TOOLSSKYBOX"
 			"uaxis" "[1 0 0 0] 0.25"
@@ -284,7 +284,7 @@ world
 		}
 		side
 		{
-			"id" "4216"
+			"id" "4108"
 			"plane" "(16376 -16376 -16376) (-16376 -16376 -16376) (-16376 -16376 16376)"
 			"material" "TOOLS/TOOLSSKYBOX"
 			"uaxis" "[1 0 0 0] 0.25"
@@ -295,7 +295,7 @@ world
 		}
 		side
 		{
-			"id" "4215"
+			"id" "4107"
 			"plane" "(256 1280 256) (2048 1280 256) (2048 -512 256)"
 			"material" "TOOLS/TOOLSSKYBOX"
 			"uaxis" "[1 0 0 0] 0.25"
@@ -306,7 +306,7 @@ world
 		}
 		side
 		{
-			"id" "4214"
+			"id" "4106"
 			"plane" "(256 -512 -64) (2048 -512 -64) (2048 1280 -64)"
 			"material" "TOOLS/TOOLSSKYBOX"
 			"uaxis" "[1 0 0 0] 0.25"
@@ -317,7 +317,7 @@ world
 		}
 		side
 		{
-			"id" "4213"
+			"id" "4105"
 			"plane" "(2048 -512 256) (2048 -512 -64) (2048 1280 -64)"
 			"material" "TOOLS/TOOLSSKYBOX"
 			"uaxis" "[0 1 0 0] 0.25"
@@ -328,7 +328,7 @@ world
 		}
 		editor
 		{
-			"color" "0 178 227"
+			"color" "0 102 227"
 			"visgroupshown" "1"
 			"visgroupautoshown" "1"
 			"cordonsolid" "1"
@@ -336,10 +336,10 @@ world
 	}
 	solid
 	{
-		"id" "3870"
+		"id" "3964"
 		side
 		{
-			"id" "4212"
+			"id" "4104"
 			"plane" "(16376 16376 16376) (-16376 16376 16376) (-16376 16376 -16376)"
 			"material" "TOOLS/TOOLSSKYBOX"
 			"uaxis" "[1 0 0 0] 0.25"
@@ -350,7 +350,7 @@ world
 		}
 		side
 		{
-			"id" "4211"
+			"id" "4103"
 			"plane" "(256 1280 256) (2048 1280 256) (2048 -512 256)"
 			"material" "TOOLS/TOOLSSKYBOX"
 			"uaxis" "[1 0 0 0] 0.25"
@@ -361,7 +361,7 @@ world
 		}
 		side
 		{
-			"id" "4210"
+			"id" "4102"
 			"plane" "(256 -512 -64) (2048 -512 -64) (2048 1280 -64)"
 			"material" "TOOLS/TOOLSSKYBOX"
 			"uaxis" "[1 0 0 0] 0.25"
@@ -372,7 +372,7 @@ world
 		}
 		side
 		{
-			"id" "4209"
+			"id" "4101"
 			"plane" "(256 1280 256) (256 -512 256) (256 -512 -64)"
 			"material" "TOOLS/TOOLSSKYBOX"
 			"uaxis" "[0 1 0 0] 0.25"
@@ -383,7 +383,7 @@ world
 		}
 		side
 		{
-			"id" "4208"
+			"id" "4100"
 			"plane" "(2048 1280 -64) (2048 -512 -64) (2048 -512 256)"
 			"material" "TOOLS/TOOLSSKYBOX"
 			"uaxis" "[0 1 0 0] 0.25"
@@ -394,7 +394,7 @@ world
 		}
 		side
 		{
-			"id" "4207"
+			"id" "4099"
 			"plane" "(256 1280 -64) (256 1280 256) (2048 1280 256)"
 			"material" "TOOLS/TOOLSSKYBOX"
 			"uaxis" "[1 0 0 0] 0.25"
@@ -405,7 +405,7 @@ world
 		}
 		editor
 		{
-			"color" "0 178 227"
+			"color" "0 102 227"
 			"visgroupshown" "1"
 			"visgroupautoshown" "1"
 			"cordonsolid" "1"
@@ -413,10 +413,10 @@ world
 	}
 	solid
 	{
-		"id" "3872"
+		"id" "3966"
 		side
 		{
-			"id" "4206"
+			"id" "4098"
 			"plane" "(16376 -16376 -16376) (-16376 -16376 -16376) (-16376 -16376 16376)"
 			"material" "TOOLS/TOOLSSKYBOX"
 			"uaxis" "[1 0 0 0] 0.25"
@@ -427,7 +427,7 @@ world
 		}
 		side
 		{
-			"id" "4205"
+			"id" "4097"
 			"plane" "(256 1280 256) (2048 1280 256) (2048 -512 256)"
 			"material" "TOOLS/TOOLSSKYBOX"
 			"uaxis" "[1 0 0 0] 0.25"
@@ -438,7 +438,7 @@ world
 		}
 		side
 		{
-			"id" "4204"
+			"id" "4096"
 			"plane" "(256 -512 -64) (2048 -512 -64) (2048 1280 -64)"
 			"material" "TOOLS/TOOLSSKYBOX"
 			"uaxis" "[1 0 0 0] 0.25"
@@ -449,7 +449,7 @@ world
 		}
 		side
 		{
-			"id" "4203"
+			"id" "4095"
 			"plane" "(256 1280 256) (256 -512 256) (256 -512 -64)"
 			"material" "TOOLS/TOOLSSKYBOX"
 			"uaxis" "[0 1 0 0] 0.25"
@@ -460,7 +460,7 @@ world
 		}
 		side
 		{
-			"id" "4202"
+			"id" "4094"
 			"plane" "(2048 1280 -64) (2048 -512 -64) (2048 -512 256)"
 			"material" "TOOLS/TOOLSSKYBOX"
 			"uaxis" "[0 1 0 0] 0.25"
@@ -471,7 +471,7 @@ world
 		}
 		side
 		{
-			"id" "4201"
+			"id" "4093"
 			"plane" "(256 -512 256) (256 -512 -64) (2048 -512 -64)"
 			"material" "TOOLS/TOOLSSKYBOX"
 			"uaxis" "[1 0 0 0] 0.25"
@@ -482,7 +482,7 @@ world
 		}
 		editor
 		{
-			"color" "0 178 227"
+			"color" "0 102 227"
 			"visgroupshown" "1"
 			"visgroupautoshown" "1"
 			"cordonsolid" "1"
@@ -3774,7 +3774,7 @@ entity
 	"spawnflags" "4097"
 	"StartDisabled" "0"
 	"targetname" "0"
-	"vscripts" "danzay/bhop_block.nut"
+	"vscripts" "danzay/bhop_trigger.nut"
 	"wait" "1"
 	solid
 	{
@@ -3868,7 +3868,7 @@ entity
 	"spawnflags" "4097"
 	"StartDisabled" "0"
 	"targetname" "0"
-	"vscripts" "danzay/bhop_block.nut"
+	"vscripts" "danzay/bhop_trigger.nut"
 	"wait" "1"
 	solid
 	{
@@ -3962,7 +3962,7 @@ entity
 	"spawnflags" "4097"
 	"StartDisabled" "0"
 	"targetname" "0"
-	"vscripts" "danzay/bhop_block.nut"
+	"vscripts" "danzay/bhop_trigger.nut"
 	"wait" "1"
 	solid
 	{
@@ -4056,7 +4056,7 @@ entity
 	"spawnflags" "4097"
 	"StartDisabled" "0"
 	"targetname" "0"
-	"vscripts" "danzay/bhop_block.nut"
+	"vscripts" "danzay/bhop_trigger.nut"
 	"wait" "1"
 	solid
 	{
@@ -4150,7 +4150,7 @@ entity
 	"spawnflags" "4097"
 	"StartDisabled" "0"
 	"targetname" "-1"
-	"vscripts" "danzay/bhop_block.nut"
+	"vscripts" "danzay/bhop_trigger.nut"
 	"wait" "1"
 	solid
 	{
@@ -4244,7 +4244,7 @@ entity
 	"spawnflags" "4097"
 	"StartDisabled" "0"
 	"targetname" "-1"
-	"vscripts" "danzay/bhop_block.nut"
+	"vscripts" "danzay/bhop_trigger.nut"
 	"wait" "1"
 	solid
 	{
@@ -4338,7 +4338,7 @@ entity
 	"spawnflags" "4097"
 	"StartDisabled" "0"
 	"targetname" "-1"
-	"vscripts" "danzay/bhop_block.nut"
+	"vscripts" "danzay/bhop_trigger.nut"
 	"wait" "1"
 	solid
 	{
@@ -4432,7 +4432,7 @@ entity
 	"spawnflags" "4097"
 	"StartDisabled" "0"
 	"targetname" "-1"
-	"vscripts" "danzay/bhop_block.nut"
+	"vscripts" "danzay/bhop_trigger.nut"
 	"wait" "1"
 	solid
 	{
@@ -4526,7 +4526,7 @@ entity
 	"spawnflags" "4097"
 	"StartDisabled" "0"
 	"targetname" "-1"
-	"vscripts" "danzay/bhop_block.nut"
+	"vscripts" "danzay/bhop_trigger.nut"
 	"wait" "1"
 	solid
 	{
@@ -4620,7 +4620,7 @@ entity
 	"spawnflags" "4097"
 	"StartDisabled" "0"
 	"targetname" "-1"
-	"vscripts" "danzay/bhop_block.nut"
+	"vscripts" "danzay/bhop_trigger.nut"
 	"wait" "1"
 	solid
 	{
@@ -4714,7 +4714,7 @@ entity
 	"spawnflags" "4097"
 	"StartDisabled" "0"
 	"targetname" "-1"
-	"vscripts" "danzay/bhop_block.nut"
+	"vscripts" "danzay/bhop_trigger.nut"
 	"wait" "1"
 	solid
 	{
@@ -4808,7 +4808,7 @@ entity
 	"spawnflags" "4097"
 	"StartDisabled" "0"
 	"targetname" "-1"
-	"vscripts" "danzay/bhop_block.nut"
+	"vscripts" "danzay/bhop_trigger.nut"
 	"wait" "1"
 	solid
 	{
@@ -4902,7 +4902,7 @@ entity
 	"spawnflags" "4097"
 	"StartDisabled" "0"
 	"targetname" "2"
-	"vscripts" "danzay/bhop_block.nut"
+	"vscripts" "danzay/bhop_trigger.nut"
 	"wait" "1"
 	solid
 	{
@@ -4996,7 +4996,7 @@ entity
 	"spawnflags" "4097"
 	"StartDisabled" "0"
 	"targetname" "2"
-	"vscripts" "danzay/bhop_block.nut"
+	"vscripts" "danzay/bhop_trigger.nut"
 	"wait" "1"
 	solid
 	{
@@ -5090,7 +5090,7 @@ entity
 	"spawnflags" "4097"
 	"StartDisabled" "0"
 	"targetname" "2"
-	"vscripts" "danzay/bhop_block.nut"
+	"vscripts" "danzay/bhop_trigger.nut"
 	"wait" "1"
 	solid
 	{
@@ -5184,7 +5184,7 @@ entity
 	"spawnflags" "4097"
 	"StartDisabled" "0"
 	"targetname" "2"
-	"vscripts" "danzay/bhop_block.nut"
+	"vscripts" "danzay/bhop_trigger.nut"
 	"wait" "1"
 	solid
 	{
@@ -5278,7 +5278,7 @@ entity
 	"spawnflags" "4097"
 	"StartDisabled" "0"
 	"targetname" "2"
-	"vscripts" "danzay/bhop_block.nut"
+	"vscripts" "danzay/bhop_trigger.nut"
 	"wait" "1"
 	solid
 	{
@@ -5372,7 +5372,7 @@ entity
 	"spawnflags" "4097"
 	"StartDisabled" "0"
 	"targetname" "2"
-	"vscripts" "danzay/bhop_block.nut"
+	"vscripts" "danzay/bhop_trigger.nut"
 	"wait" "1"
 	solid
 	{
@@ -5466,7 +5466,7 @@ entity
 	"spawnflags" "4097"
 	"StartDisabled" "0"
 	"targetname" "2"
-	"vscripts" "danzay/bhop_block.nut"
+	"vscripts" "danzay/bhop_trigger.nut"
 	"wait" "1"
 	solid
 	{
@@ -5560,7 +5560,7 @@ entity
 	"spawnflags" "4097"
 	"StartDisabled" "0"
 	"targetname" "2"
-	"vscripts" "danzay/bhop_block.nut"
+	"vscripts" "danzay/bhop_trigger.nut"
 	"wait" "1"
 	solid
 	{
@@ -5747,7 +5747,7 @@ entity
 	"spawnflags" "4097"
 	"StartDisabled" "0"
 	"targetname" "0"
-	"vscripts" "danzay/bhop_block.nut"
+	"vscripts" "danzay/bhop_trigger.nut"
 	"wait" "1"
 	solid
 	{
@@ -5841,7 +5841,7 @@ entity
 	"spawnflags" "4097"
 	"StartDisabled" "0"
 	"targetname" "0"
-	"vscripts" "danzay/bhop_block.nut"
+	"vscripts" "danzay/bhop_trigger.nut"
 	"wait" "1"
 	solid
 	{
@@ -5935,7 +5935,7 @@ entity
 	"spawnflags" "4097"
 	"StartDisabled" "0"
 	"targetname" "0"
-	"vscripts" "danzay/bhop_block.nut"
+	"vscripts" "danzay/bhop_trigger.nut"
 	"wait" "1"
 	solid
 	{
@@ -6029,7 +6029,7 @@ entity
 	"spawnflags" "4097"
 	"StartDisabled" "0"
 	"targetname" "0"
-	"vscripts" "danzay/bhop_block.nut"
+	"vscripts" "danzay/bhop_trigger.nut"
 	"wait" "1"
 	solid
 	{
@@ -6348,8 +6348,8 @@ cameras
 	"activecamera" "0"
 	camera
 	{
-		"position" "[1150.52 -992.669 813.111]"
-		"look" "[1150.51 -991.872 812.504]"
+		"position" "[1116.22 -1129.58 981.145]"
+		"look" "[1116.24 -1128.79 980.527]"
 	}
 }
 cordons

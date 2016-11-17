@@ -2,8 +2,8 @@
 
 	Written by DanZay.
 	
-	Implementation of a b-hop block system with controllable number
-	of other b-hop block touches required so that you can customise
+	Implementation of a b-hop trigger system with controllable number
+	of other b-hop trigger touches required so that you can customise
 	the b-hop gameplay e.g. single touch or multi-touch b-hop.
 	
 	!!!IMPORTANT!!!
@@ -13,31 +13,31 @@
 
 // Global Variables
 
-const checkIfHoppedDelay = 0.1; // Time before checking if the player is still touching the block.
+const bh_checkIfHoppedDelay = 0.1; // Time before checking if the player is still touching the trigger.
 
-previousBlocks <- []; // Previously touched b-hop blocks.
-touching <- null; // B-hop block they are current touching.
-safeArea <- null; // Last touched safe area.
+bh_previousTriggers <- []; // Previously touched b-hop triggers.
+bh_touching <- null; // B-hop trigger the player is currently touching.
+bh_safeArea <- null; // Last touched safe area.
 
 
 // Functions
 
-/*	BhopBlockStartTouch(bhopTrigger)
-	Called when player touches a b-hop block trigger.
-	Checks if the player should be teleported, and if not, adds the block to the
-	previously touched blocks array, and sends an order to check if the player
+/*	BhopTriggerStartTouch(bhopTrigger)
+	Called when player touches a b-hop trigger.
+	Checks if the player should be teleported, and if not, adds the trigger to the
+	previously touched triggers array, and sends an order to check if the player
 	is still touching after a short delay (in which case it will teleport them).
 	
 	Parameters:
-	bhopTrigger - The handle of the touched b-hop block trigger. 
+	bhopTrigger - The handle of the touched b-hop trigger. 
 */
-function BhopBlockStartTouch(bhopTrigger)
+function BhopTriggerStartTouch(bhopTrigger)
 {
 	if (BhopValidateTouch(bhopTrigger))
 	{
-		touching = bhopTrigger;
-		previousBlocks.append(bhopTrigger);
-		EntFireByHandle(bhopTrigger, "RunScriptCode", "CheckIfHopped();", checkIfHoppedDelay, self, self);
+		bh_touching = bhopTrigger;
+		bh_previousTriggers.append(bhopTrigger);
+		EntFireByHandle(bhopTrigger, "RunScriptCode", "CheckIfHopped();", bh_checkIfHoppedDelay, self, self);
 	}
 	else
 	{
@@ -45,37 +45,37 @@ function BhopBlockStartTouch(bhopTrigger)
 	}
 }
 
-/*	BhopBlockEndTouch()
+/*	BhopTriggerEndTouch()
 
-	Called when player stops touching a b-hop block trigger.
-	Clears the touching variable, indicating the player has left the b-hop block.
+	Called when player stops touching a b-hop trigger.
+	Clears the touching variable, indicating the player has left the b-hop trigger.
 */	
-function BhopBlockEndTouch()
+function BhopTriggerEndTouch()
 {
-	touching = null;
+	bh_touching = null;
 }
 
 /*	BhopValidateTouch(bhopTrigger)
 	
-	Checks whether or not the player should be teleported having touched a b-hop block.
+	Checks whether or not the player should be teleported having touched a b-hop trigger.
 
 	Parameters:
-	bhopTrigger - The handle of the touched b-hop block trigger. 
+	bhopTrigger - The handle of the touched b-hop trigger. 
 */
 function BhopValidateTouch(bhopTrigger)
 {
-	// Number of jumps on other b-hop blocks the player needs before touching the same one again.
-	local numOtherBlocksRequired = bhopTrigger.GetName().tointeger();
+	// Number of jumps on other b-hop triggers the player needs before touching the same one again.
+	local numOtherTriggersRequired = bhopTrigger.GetName().tointeger();
 	
-	if ((numOtherBlocksRequired == -1) && IsInArray(bhopTrigger, previousBlocks))
+	if ((numOtherTriggersRequired == -1) && IsInArray(bhopTrigger, bh_previousTriggers))
 	{	// Strictly single-touch b-hop
 		return false;
 	}
-	else if (numOtherBlocksRequired >= 0)
+	else if (numOtherTriggersRequired >= 0)
 	{
-		for(local i = Max(previousBlocks.len() - numOtherBlocksRequired, 0); i < previousBlocks.len(); i++)
+		for(local i = Max(bh_previousTriggers.len() - numOtherTriggersRequired, 0); i < bh_previousTriggers.len(); i++)
 		{
-			if (previousBlocks[i] == bhopTrigger)
+			if (bh_previousTriggers[i] == bhopTrigger)
 			{
 				return false;
 			}
@@ -86,15 +86,15 @@ function BhopValidateTouch(bhopTrigger)
 
 /*	BhopCheckIfHopped(bhopTrigger)
 	
-	Called after a short delay after touching a b-hop block.
-	Teleports the player if they are still touching the b-hop block.
+	Called after a short delay after touching a b-hop trigger.
+	Teleports the player if they are still touching the b-hop trigger.
 
 	Parameters:
-	bhopTrigger - The handle of the touched b-hop block trigger. 
+	bhopTrigger - The handle of the touched b-hop trigger. 
 */
 function BhopCheckIfHopped(bhopTrigger)
 {
-	if (touching == bhopTrigger)
+	if (bh_touching == bhopTrigger)
 	{
 		BhopTeleportBack();
 	}
@@ -106,19 +106,20 @@ function BhopCheckIfHopped(bhopTrigger)
 */
 function BhopTeleportBack()
 {
-	TeleportPlayerTo(safeArea);
+	TeleportPlayerTo(bh_safeArea);
+	SetVelocityToZero(self);
 }
 
 /*	BhopSafeStartTouch(safeTrigger)
 
 	Called when the player touches a safe area trigger.
-	Sets the new safe area trigger, and clears the previously touched block array.
+	Sets the new safe area trigger, and clears the previously touched trigger array.
 	
 	Parameters:
 	safeTrigger - The handle of the touched safe area trigger.
 */	
 function BhopSafeStartTouch(safeTrigger)
 {
-	safeArea = safeTrigger;
-	previousBlocks.clear();
+	bh_safeArea = safeTrigger;
+	bh_previousTriggers.clear();
 }
