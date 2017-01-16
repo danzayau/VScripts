@@ -22,8 +22,6 @@ Further documentation of usage can be found below, and in the comments of the .n
 
 ============================
 
-### Features
-
 #### *misc.nut*
 
 All functions that weren't directly related to a certain mechanic. Is generally required to be in the player's scope. Includes teleport, printing to the center info panel, execute client commands.
@@ -34,8 +32,7 @@ You must have the player run misc.nut when they join.
 
 Use *misc_setlanguage.nut* to set the player's language as specified by the entity's name (this is mostly there for fun, but you could theoretically provide message localisation).
 
-
-
+============================
 
 #### *bhop.nut*
 
@@ -49,8 +46,7 @@ Use *bhop_safe.nut* for safe area triggers. Failing a b-hop will teleport you to
 
 Use *bhop_miss.nut* for other triggers that should teleport the player back to the last touched safe area.
 
-
-
+============================
 
 #### *nonlinear.nut*
 
