@@ -59,7 +59,7 @@ function Max(value1, value2)
 
 /*	TeleportPlayerTo(destEntity)
 
-	Teleports the player to an entity's origin, and set's their velocity to 0.
+	Teleports the player to an entity's origin.
 	
 	Parameters:
 	destEntity - The entity handle to teleport the player to.

@@ -29,25 +29,25 @@ soundsNonlinear <-
 
 function MessageObjectiveGet()
 {
-	local message = format(messagesNonlinear[language].ObjectiveGet, GetNumberOfObjectivesCollected());
+	local message = format(messagesNonlinear[misc_language].ObjectiveGet, GetNumberOfObjectivesCollected());
 	return message;
 }
 
 function MessageAlreadyCollectedObjective()
 {
-	local message = messagesNonlinear[language].AlreadyCollectedObjective;
+	local message = messagesNonlinear[misc_language].AlreadyCollectedObjective;
 	return message;
 }
 
 function MessageObjectiveGateFail(objectivesRequired)
 {
-	local message = format(messagesNonlinear[language].ObjectiveGateFail, objectivesRequired, GetNumberOfObjectivesCollected());
+	local message = format(messagesNonlinear[misc_language].ObjectiveGateFail, objectivesRequired, GetNumberOfObjectivesCollected());
 	return message;
 }
 
 function MessageObjectiveReset()
 {
-	local message = messagesNonlinear[language].ObjectiveReset;
+	local message = messagesNonlinear[misc_language].ObjectiveReset;
 	return message;
 }
 
