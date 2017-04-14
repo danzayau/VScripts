@@ -158,7 +158,7 @@ function ShowHudHintMessage(message)
 	Plays a sound to the player.
 	
 	Parameters:
-	soundPath - Path of the sound file (sound/...).
+	soundPath - Path of the sound file (csgo/sound/soundPath).
 */
 function PlaySound(soundPath)
 {
