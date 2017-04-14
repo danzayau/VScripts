@@ -2,13 +2,13 @@
 
 These VScripts provide mappers with reliable, more customisable implementations of frequently used KZ mechanics (e.g. b-hop blocks) . This is hopefully done whilst also reducing the complexity of putting the mechanics into a map.
 
-============================
+---
 
 ### Brief Explanation of VScripts
 
 Entities can be given an "Entity Script" in their properties. This makes them run a script when it spawns. A script can connect entity outputs, such as a trigger_multiple's OnStartTouch, to execute code. That code can be written to have the entity do [almost anything](https://developer.valvesoftware.com/wiki/List_of_Counter-Strike:_Global_Offensive_Script_Functions). In my case, they run functions from the player's scope. Used VScript files are placed into /csgo/scripts/vscripts/ and need to be packed into the map. Recommended resources: [VScript](https://developer.valvesoftware.com/wiki/VScript), [Vscript Fundamentals](https://developer.valvesoftware.com/wiki/Vscript_Fundamentals).
 
-============================
+---
 
 ### Usage
 
@@ -20,7 +20,7 @@ Certain scripts need to be run by the player (RunScriptFile) when they spawn int
 
 Further documentation of usage can be found below, and in the comments of the .nut files.
 
-============================
+---
 
 #### *misc.nut*
 
@@ -32,7 +32,7 @@ You must have the player run misc.nut when they join.
 
 Use *misc_setlanguage.nut* to set the player's language as specified by the entity's name (this is mostly there for fun, but you could theoretically provide message localisation).
 
-============================
+---
 
 #### *bhop.nut*
 
@@ -46,7 +46,7 @@ Use *bhop_safe.nut* for safe area triggers. Failing a b-hop will teleport you to
 
 Use *bhop_miss.nut* for other triggers that should teleport the player back to the last touched safe area.
 
-============================
+---
 
 #### *nonlinear.nut*
 
