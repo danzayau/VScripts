@@ -27,7 +27,7 @@ abh_touching <- null; // Anti b-hop trigger the player is currently touching.
 function AntibhopTriggerStartTouch(antibhopTrigger)
 {
 	abh_touching = antibhopTrigger;
-	EntFireByHandle(antibhopTrigger, "RunScriptCode", "AntibhopCheckIfHopped();", abh_checkIfHoppedDelay, self, self);
+	EntFireByHandle(antibhopTrigger, "RunScriptCode", "CheckIfHopped();", abh_checkIfHoppedDelay, self, self);
 }
 
 /*	AntibhopTriggerEndTouch(antibhopTrigger)
