@@ -1,35 +1,29 @@
-/*	antibhop_trigger
-
-	Written by DanZay.
-	
+/*
 	Anti b-hop trigger.
 */
 
 
 // Functions
 
-/* 	StartTouch()
-
+/*
 	OnStartTouch output.
 */
-function StartTouch()
+function OnStartTouch()
 {
 	local playerScope = activator.GetScriptScope();
-	playerScope.AntibhopTriggerStartTouch(self);
+	playerScope.OnAntibhopTriggerStartTouch(self);
 }
 
-/* 	EndTouch()
-
+/*
 	OnEndTouch output.
 */
-function EndTouch()
+function OnEndTouch()
 {
 	local playerScope = activator.GetScriptScope();
-	playerScope.AntibhopTriggerEndTouch();
+	playerScope.OnAntibhopTriggerEndTouch();
 }
 
-/*	CheckIfHopped()
-	
+/*
 	Ran after a short delay after touching the trigger.
 */
 function CheckIfHopped()
@@ -41,5 +35,5 @@ function CheckIfHopped()
 
 // Output Connections
 
-self.ConnectOutput("OnStartTouch", "StartTouch");
-self.ConnectOutput("OnEndTouch", "EndTouch");
+self.ConnectOutput("OnStartTouch", "OnStartTouch");
+self.ConnectOutput("OnEndTouch", "OnEndTouch");

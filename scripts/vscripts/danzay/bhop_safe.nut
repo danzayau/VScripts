@@ -1,7 +1,4 @@
-/*	bhop_safe
-
-	Written by DanZay.
-	
+/*
 	B-hop checkpoint/safe area trigger.
 	
 	!!!IMPORTANT!!!
@@ -11,17 +8,16 @@
 
 // Functions
 
-/* 	StartTouch()
-
+/*
 	OnStartTouch output.
 */
-function StartTouch()
+function OnStartTouch()
 {
 	local playerScope = activator.GetScriptScope();
-	playerScope.BhopSafeStartTouch(self);
+	playerScope.OnBhopSafeStartTouch(self);
 }
 
 
 // Output Connections
 
-self.ConnectOutput("OnStartTouch", "StartTouch");
+self.ConnectOutput("OnStartTouch", "OnStartTouch");

@@ -1,7 +1,4 @@
-/*	nonlinear
-
-	Written by DanZay.
-	
+/*
 	Implementation of a non-linear, objective-based system.
 	The player must gather objectives to increase their objective count.
 	Their objective count can be used to control the actions of entities.
@@ -47,66 +44,65 @@ function ResetObjectivesCollected()
 	if (nl_collectedObjectives.len() > 0)
 	{
 		nl_collectedObjectives.clear();
-		CenterPanelMessage(MessageObjectiveReset());
+		PrintGameText(GetMessageObjectiveReset());
 	}
 }
 
-/* 	ObjectiveTouch(objectiveTrigger)
-
+/*
 	Called when player touches an objective trigger.
 	Adds the objective to the collected objectives list if the player hasn't collected it already.
 	
 	Parameters:
 	touchedObjective - The handle of the touched objective trigger. 
 */
-function ObjectiveTouch(touchedObjective)
+function OnObjectiveTouch(touchedObjective)
 {
 	if (IsInArray(touchedObjective, nl_collectedObjectives))
 	{
-		CenterPanelMessage(MessageAlreadyCollectedObjective());
+		PrintGameText(GetMessageAlreadyCollectedObjective());
 	}
 	else
 	{
 		nl_collectedObjectives.append(touchedObjective);
-		PlaySound(SoundObjectiveGet());
-		CenterPanelMessage(MessageObjectiveGet());
+		PlaySound(GetSoundObjectiveGet());
+		PrintGameText(GetMessageObjectiveGet());
 	}
 }
 
-/*	ObjectiveGateReboundTouch(touchedGate)
-
+/*
 	Called when player touches an objective gate (rebound type).
 	Checks if the player has enough objectives to pass, and rebounds them if they don't.
 	
 	Parameters:
 	touchedGate - The handle of the touched objective gate trigger.
 */
-function ObjectiveGateReboundTouch(touchedGate)
+function OnObjectiveGateReboundTouch(touchedGate)
 {
 	local nl_objectivesRequired = touchedGate.GetName().tointeger();
 	
 	if (GetNumberOfObjectivesCollected() < nl_objectivesRequired)
 	{
-		CenterPanelMessage(MessageObjectiveGateFail(nl_objectivesRequired));
+		PrintGameText(GetMessageObjectiveGateFail(nl_objectivesRequired));
+		PlaySound(GetSoundObjectiveFail());
 		Rebound(touchedGate);
 	}
 }
 
-/*	ObjectiveGateTeleportTouch(touchedGate)
-
+/*
 	Called when player touches a objective gate (teleport type).
 	Checks if the player has enough objectives to pass, and teleports them if they don't.
 	
 	Parameters:
 	touchedGate - The handle of the touched objective gate trigger.
 */
-function ObjectiveGateTeleportTouch(touchedGate)
+function OnObjectiveGateTeleportTouch(touchedGate)
 {
 	local nl_objectivesRequired = touchedGate.GetName().tointeger();
 	
 	if (GetNumberOfObjectivesCollected() < nl_objectivesRequired)
 	{	
-		CenterPanelMessage(MessageObjectiveGateFail(nl_objectivesRequired));
+		PrintGameText(GetMessageObjectiveGateFail(nl_objectivesRequired));
+		PlaySound(GetSoundObjectiveFail());
 		TeleportPlayerTo(touchedGate);
 		SetVelocityToZero(self);
 	}

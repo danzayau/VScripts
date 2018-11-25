@@ -1,7 +1,4 @@
-/*	nonlinear_gate
-
-	Written by DanZay.
-	
+/*
 	Objective gate trigger - rebound type.
 	Bounces players back if they don't have enough objectives.
 	
@@ -14,17 +11,16 @@
 	
 // Functions
 
-/* 	StartTouch()
-
+/*
 	OnStartTouch output.
 */
-function StartTouch()
+function OnStartTouch()
 {
 	local playerScope = activator.GetScriptScope();
-	playerScope.ObjectiveGateReboundTouch(self);
+	playerScope.OnObjectiveGateReboundTouch(self);
 }
 
 
 // Output Connections
 
-self.ConnectOutput("OnStartTouch", "StartTouch");
+self.ConnectOutput("OnStartTouch", "OnStartTouch");

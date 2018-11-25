@@ -1,7 +1,4 @@
-/*	antibhop
-
-	Written by DanZay.
-	
+/*
 	Implementation of anti b-hop trigger system.
 	
 	!!!IMPORTANT!!!
@@ -18,28 +15,27 @@ abh_touching <- null; // Anti b-hop trigger the player is currently touching.
 
 // Functions
 
-/*	AntibhopTriggerStartTouch(antibhopTrigger)
+/*
 	Called when player touches an anti b-hop trigger.
 	
 	Parameters:
 	antibhopTrigger - The handle of the touched anti b-hop trigger. 
 */
-function AntibhopTriggerStartTouch(antibhopTrigger)
+function OnAntibhopTriggerStartTouch(antibhopTrigger)
 {
 	abh_touching = antibhopTrigger;
 	EntFireByHandle(antibhopTrigger, "RunScriptCode", "CheckIfHopped();", abh_checkIfHoppedDelay, self, self);
 }
 
-/*	AntibhopTriggerEndTouch(antibhopTrigger)
+/*
 	Called when player stops touching an anti b-hop trigger.
 */
-function AntibhopTriggerEndTouch()
+function OnAntibhopTriggerEndTouch()
 {
 	abh_touching = null;
 }
 
-/*	AntibhopCheckIfHopped(antibhopTrigger)
-	
+/*
 	Called after a short delay after touching a anti b-hop trigger.
 	Sets the player's velocity to 0 if they b-hopped.
 

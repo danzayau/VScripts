@@ -1,7 +1,4 @@
-/*	bhop
-
-	Written by DanZay.
-	
+/*
 	Implementation of a b-hop trigger system with controllable number
 	of other b-hop trigger touches required so that you can customise
 	the b-hop gameplay e.g. single touch or multi-touch b-hop.
@@ -22,7 +19,7 @@ bh_safeArea <- null; // Last touched safe area.
 
 // Functions
 
-/*	BhopTriggerStartTouch(bhopTrigger)
+/*
 	Called when player touches a b-hop trigger.
 	Checks if the player should be teleported, and if not, adds the trigger to the
 	previously touched triggers array, and sends an order to check if the player
@@ -31,7 +28,7 @@ bh_safeArea <- null; // Last touched safe area.
 	Parameters:
 	bhopTrigger - The handle of the touched b-hop trigger. 
 */
-function BhopTriggerStartTouch(bhopTrigger)
+function OnBhopTriggerStartTouch(bhopTrigger)
 {
 	if (BhopValidateTouch(bhopTrigger))
 	{
@@ -45,18 +42,16 @@ function BhopTriggerStartTouch(bhopTrigger)
 	}
 }
 
-/*	BhopTriggerEndTouch()
-
+/*
 	Called when player stops touching a b-hop trigger.
 	Clears the touching variable, indicating the player has left the b-hop trigger.
 */	
-function BhopTriggerEndTouch()
+function OnBhopTriggerEndTouch()
 {
 	bh_touching = null;
 }
 
-/*	BhopValidateTouch(bhopTrigger)
-	
+/*
 	Checks whether or not the player should be teleported having touched a b-hop trigger.
 
 	Parameters:
@@ -84,8 +79,7 @@ function BhopValidateTouch(bhopTrigger)
 	return true;
 }
 
-/*	BhopCheckIfHopped(bhopTrigger)
-	
+/*
 	Called after a short delay after touching a b-hop trigger.
 	Teleports the player if they are still touching the b-hop trigger.
 
@@ -100,8 +94,7 @@ function BhopCheckIfHopped(bhopTrigger)
 	}
 }
 
-/*	BhopTeleportBack()
-
+/*
 	Teleports the player to the last touched safe area's origin.
 */
 function BhopTeleportBack()
@@ -110,15 +103,14 @@ function BhopTeleportBack()
 	SetVelocityToZero(self);
 }
 
-/*	BhopSafeStartTouch(safeTrigger)
-
+/*
 	Called when the player touches a safe area trigger.
 	Sets the new safe area trigger, and clears the previously touched trigger array.
 	
 	Parameters:
 	safeTrigger - The handle of the touched safe area trigger.
 */	
-function BhopSafeStartTouch(safeTrigger)
+function OnBhopSafeStartTouch(safeTrigger)
 {
 	bh_safeArea = safeTrigger;
 	bh_previousTriggers.clear();

@@ -8,11 +8,10 @@
 
 // Functions
 
-/* 	StartTouch()
-
+/*
 	OnStartTouch output.
 */
-function StartTouch()
+function OnStartTouch()
 {
 	local playerScope = activator.GetScriptScope();
 	playerScope.ResetObjectivesCollected();
@@ -21,4 +20,4 @@ function StartTouch()
 
 // Output Connections
 
-self.ConnectOutput("OnStartTouch", "StartTouch");
+self.ConnectOutput("OnStartTouch", "OnStartTouch");
