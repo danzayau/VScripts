@@ -154,7 +154,7 @@ function PrintGameText(message)
 {
 	local game_text = Entities.CreateByClassname("game_text");
 	game_text.__KeyValueFromString("Message", message);
-	game_text.__KeyValueFromString("color", "255 255 0");
+	game_text.__KeyValueFromString("color", "255 255 255");
 	game_text.__KeyValueFromString("effect", "0");
 	game_text.__KeyValueFromString("fadein", "0.0");
 	game_text.__KeyValueFromString("fadeout", "0.0");
